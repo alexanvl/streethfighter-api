@@ -14,16 +14,16 @@ produces:
 paths:
 # routes
   /v1/agreement/open:
-    x-swagger-router-controller: channel
+    x-swagger-router-controller: agreement
     post:
       tags:
-        - channel
+        - agreement
       operationId: open
-      description: Open channel on hub
+      description: Open agreement on hub
       parameters:
         - name: body
           in: body
-          description: Channel data
+          description: Agreement data
           required: true
           schema:
             $ref: '#/definitions/JSONGeneric'
@@ -38,16 +38,16 @@ paths:
             $ref: "#/definitions/JSONGeneric"
 
   /v1/agreement/close:
-    x-swagger-router-controller: channel
+    x-swagger-router-controller: agreement
     post:
       tags:
-        - channel
+        - agreement
       operationId: close
-      description: Close channel on hub
+      description: Close agreement on hub
       parameters:
         - name: body
           in: body
-          description: Channel data
+          description: Agreement data
           required: true
           schema:
             $ref: '#/definitions/JSONGeneric'
