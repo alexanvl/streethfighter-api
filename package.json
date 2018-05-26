@@ -1,0 +1,28 @@
+{
+  "name": "ethba-hackathon-api",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Swagger API for ETHBuenosAires Hackathon",
+  "keywords": [],
+  "author": "Alex Lewis",
+  "license": "",
+  "main": "index.js",
+  "dependencies": {
+    "connect": "^3.6.5",
+    "request": "^2.83.0",
+    "swagger": "^0.7.5",
+    "swagger-tools": "^0.10.3",
+    "swagger-ui": "https://github.com/entropyfarms/swagger-ui/tarball/master",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "should": "^13.2.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "start": "export NODE_ENV=production && node index.js",
+    "start:dev": "swagger_swagger_fileName=config/swagger.yaml swagger project start -m",
+    "edit": "swagger_swagger_fileName=config/swagger.yaml swagger project edit",
+    "test": "swagger_swagger_fileName=config/swagger.yaml swagger project test"
+  }
+}

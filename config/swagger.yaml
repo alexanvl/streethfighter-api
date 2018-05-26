@@ -1,0 +1,66 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: ETHBA Hackathon API
+host: 'localhost:10011'
+basePath: '/'
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+# routes
+  /v1/channel/open:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: open
+      description: Open channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"
+
+  /v1/channel/close:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: close
+      description: Close channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"
+# schema definitions
+definitions:
+  JSONGeneric:
+    type: object
