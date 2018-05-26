@@ -1,5 +1,6 @@
 const models = require('../models');
 const util = require('../helpers/util');
+const lib = require('js-layer2lib');
 
 module.exports.open = (req, res, next) => {
   const agreementData = req.swagger.params.body.value;

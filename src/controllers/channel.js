@@ -1,5 +1,6 @@
 const models = require('../models');
 const util = require('../helpers/util');
+const lib = require('js-layer2lib');
 
 module.exports.open = (req, res, next) => {
   const channelData = req.swagger.params.body.value;
@@ -9,13 +10,13 @@ module.exports.open = (req, res, next) => {
 
 module.exports.join = (req, res, next) => {
   const channelData = req.swagger.params.body.value;
-  console.log('close channel', channelData);
+  console.log('join channel', channelData);
   util.response(Promise.resolve({ success: true }), 200, res, next);
 };
 
 module.exports.confirm = (req, res, next) => {
   const channelData = req.swagger.params.body.value;
-  console.log('close channel', channelData);
+  console.log('confirm channel', channelData);
   util.response(Promise.resolve({ success: true }), 200, res, next);
 };
 
