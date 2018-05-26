@@ -13,6 +13,54 @@ produces:
   - application/json
 paths:
 # routes
+  /v1/agreement/open:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: open
+      description: Open channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"
+
+  /v1/agreement/close:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: close
+      description: Close channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"
+
   /v1/channel/open:
     x-swagger-router-controller: channel
     post:
@@ -37,6 +85,54 @@ paths:
           schema:
             $ref: "#/definitions/JSONGeneric"
 
+  /v1/channel/join:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: join
+      description: Join channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"
+
+  /v1/channel/cofirm:
+    x-swagger-router-controller: channel
+    post:
+      tags:
+        - channel
+      operationId: confirm
+      description: Confirm channel on hub
+      parameters:
+        - name: body
+          in: body
+          description: Channel data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/JSONGeneric"            
+
   /v1/channel/close:
     x-swagger-router-controller: channel
     post:
@@ -59,7 +155,7 @@ paths:
         default:
           description: Error
           schema:
-            $ref: "#/definitions/JSONGeneric"
+            $ref: "#/definitions/JSONGeneric"            
 # schema definitions
 definitions:
   JSONGeneric:
