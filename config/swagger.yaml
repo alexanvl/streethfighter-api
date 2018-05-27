@@ -155,6 +155,30 @@ paths:
         default:
           description: Error
           schema:
+            $ref: "#/definitions/JSONGeneric"       
+            
+  /v1/character/:
+    x-swagger-router-controller: character
+    post:
+      tags:
+        - character
+      operationId: get
+      description: Return charcter information
+      parameters:
+        - name: body
+          in: body
+          description: Character data
+          required: true
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/JSONGeneric'
+        default:
+          description: Error
+          schema:
             $ref: "#/definitions/JSONGeneric"            
 # schema definitions
 definitions:
