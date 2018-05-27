@@ -9,7 +9,7 @@ const options = {
   privateKey: keys.private,
 };
 
-const l2lib = new Layer2lib('http://localhost:8545', options);
+const l2lib = new Layer2lib('https://rinkeby.infura.io', options);
 l2lib.initGSC();
 
 module.exports = l2lib;
