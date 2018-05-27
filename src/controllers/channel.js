@@ -25,18 +25,14 @@ module.exports.open = (req, res, next) => {
           const cpData = channelDoc[channel.counterparty];
           // join both channels and notify
           const chanIngrid1 = channel;
-          chanIngrid1.dbSalt = keys.public;
           agreementIngrid = agreement;
-          agreementIngrid.dbSalt = keys.public;
           await layer2lib.gsc.joinChannel(chanIngrid1, agreementIngrid, chanIngrid1.stateRaw);
-          const agreementAck1 = await layer2lib.getGSCAgreement(`${agreementIngrid.ID}${agreementIngrid.dbSalt}`);
+          const agreementAck1 = await layer2lib.getGSCAgreement(`${agreementIngrid.ID}`);
 console.log('ack1')
           const chanIngrid2 = cpData.channel;
-          chanIngrid2.dbSalt = keys.public;
           agreementIngrid2 = cpData.agreement;
-          agreementIngrid2.dbSalt = keys.public;
           await layer2lib.gsc.joinChannel(chanIngrid2, agreementIngrid2, chanIngrid2.stateRaw);
-          const agreementAck2 = await layer2lib.getGSCAgreement(`${agreementIngrid2.ID}${agreementIngrid2.dbSalt}`);
+          const agreementAck2 = await layer2lib.getGSCAgreement(`${agreementIngrid2.ID}`);
           updates[`joinedChannel/${gameId}/${publicKey}`] = agreementAck1;
           updates[`joinedChannel/${gameId}/${channel.counterparty}`] = agreementAck2;
 

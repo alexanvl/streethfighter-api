@@ -4,12 +4,10 @@ const keys = require('../../config/keys.json');
 
 module.exports.open = async (req, res, next) => {
   const { agreement, state } = req.swagger.params.body.value;
-  agreement.dbSalt = keys.public;
-  let ingridId = agreement.ID + agreement.dbSalt;
 
   await layer2lib.joinGSCAgreement(agreement, state);
 
-  util.response(layer2lib.getGSCAgreement(ingridId), 200, res, next);
+  util.response(layer2lib.getGSCAgreement(agreement.ID), 200, res, next);
 };
 
 module.exports.close = (req, res, next) => {
