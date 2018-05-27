@@ -1,5 +1,6 @@
 const util = require('../helpers/util');
-const layer2lib = require('../helpers/layer2lib')
+const layer2lib = require('../helpers/layer2lib');
+const keys = require('../../config/keys.json');
 
 module.exports.open = (req, res, next) => {
   const channelData = req.swagger.params.body.value;

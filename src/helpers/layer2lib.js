@@ -1,6 +1,7 @@
 const firebase = require('firebase-admin');
-const serviceAccount = require('../../config/ethba-hackathon-firebase-adminsdk-iegdh-1cf16f9678.json');
 const Layer2lib = require('js-layer2lib');
+const keys = require('../../config/keys.json');
+const serviceAccount = require('../../config/ethba-hackathon-firebase-adminsdk-iegdh-1cf16f9678.json');
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
@@ -11,7 +12,10 @@ const firebaseProxy = new Layer2lib.FirebaseStorageProxy(firebase);
 
 const options = {
   db: firebaseProxy,
-  privateKey: '0x36935cf2550ecbacc19f5a3098028f59516e7fed7342aea9169cfb144af53ec1',
+  privateKey: keys.private,
 }
 
-module.exports = new Layer2lib("http://localhost:8545", options);
+const l2lib = new Layer2lib('http://localhost:8545', options);
+l2lib.initGSC();
+
+module.exports = l2lib;
